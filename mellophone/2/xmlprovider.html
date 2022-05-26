@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>XML-файл-провайдер аутентификации :: Платформа КУРС</title>
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">Платформа КУРС</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Поиск">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="../../index.html"><img src="../../_/img/course-orchestra-logo.svg" width="60rem"></a>
+        <!--div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div-->
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="mellophone" data-version="2">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="general.html">Мелофон</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="general.html">Общие сведения</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="services.html">Сервлеты сервера аутентификации и протокол работы с ними</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="melloponeconfig.html">Настройка Mellophone</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="config.html">Общие настройки</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="sqlprovider.html">SQL-провайдер аутентификации</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="httpprovider.html">HTTP-провайдер аутентификации</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="xmlprovider.html">XML-файл-провайдер аутентификации</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ldapprovider.html">ldapprovider.adoc</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="api.html">Mellophone API</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Мелофон</span>
+    <span class="version">2</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="general.html">Мелофон</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="general.html">2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../doc/1/st2-ui-state-in-url.html">Платформа КУРС</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../doc/1/st2-ui-state-in-url.html">1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../celesta/7/1010_what_is_celesta.html">Челеста</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../celesta/7/1010_what_is_celesta.html">7</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../doc/1/general.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="general.html">Мелофон</a></li>
+    <li><a href="xmlprovider.html">XML-файл-провайдер аутентификации</a></li>
+  </ul>
+</nav>
+<!--  -->
+<!--  -->
+<!--  <div class="edit-this-page"><a href="file:///usr/src/app/target/doc/components/mellophone2/target/antora/modules/ROOT/pages/xmlprovider.adoc">Редактировать страницу</a></div>-->
+<!--  -->
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Содержание" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">XML-файл-провайдер аутентификации</h1>
+<div class="sect1">
+<h2 id="_принцип_работы">
+<a class="anchor" href="#_%D0%BF%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF_%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B"></a>Принцип работы</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Это — наиболее простой провайдер. Он работает с файлом XML на диске. Формат этого файла предопределён (пример см. ниже), файле хранится логин пользователя, хэшированный по SHA-1 пароль, а также дополнительная информация о пользователе, такая, как его имя, email и прочее.</p>
+</div>
+<div class="paragraph">
+<p>Для простоты первоначальной настройки пароль можно указывать и в явном виде, после смены пароля пользователем в соответствующем атрибуте будет храниться хэшированный пароль.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.curs.ru/authserver users.xsd" xmlns="http://www.curs.ru/authserver"&gt;
+	&lt;user login="Иванов" password="пасс1"
+		SID="8dbf2a31-cfe6-4188-a2f0-0125481355cd" name="Алексей В. Васильев"
+		email="12@yandex.ru" phone="123-56-78" organization = "org1" fax = "fax1"/&gt;
+	&lt;user login="Петров" password="c8233fc18a5fd0f87284d9fa971049891315ed84"
+		SID="f2f0dbe5-da83-4367-9827-01e7c179ea3a" name="Борис В. Смирнов"
+		email="34@yandex.ru" phone="784-23-f5" organization = "org2" fax = "fax2"/&gt;
+	&lt;user login="Сидоров" password="пасс3"
+		SID="5e599041-6a69-466e-b22c-f3003be536d9" name="Евгений Балмасов"
+		email="56@yandex.ru" phone="апе-43-67" organization = "org3" fax = "fax3"/&gt;
+        &lt;user login="user111" password="pwd111"
+                SID="8dbf2a31-cfe6-4188-a2f0-0125481355ce" name="Алексей В. Васильев"
+                email="12@yandex.ru" phone="123-56-78" organization = "org4" fax = "fax4"/&gt;
+&lt;/users&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_параметры_настройки_в_файле_config_xml">
+<a class="anchor" href="#_%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D1%8B_%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B8_%D0%B2_%D1%84%D0%B0%D0%B9%D0%BB%D0%B5_config_xml"></a>Параметры настройки в файле config.xml</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Провайдер определяется тэгом <strong>xmlfile</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Параметры (субтэги):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>id</strong> (строка) - идентификатор провайдера.</p>
+</li>
+<li>
+<p><strong>logging</strong> (true/false) - выводить в лог события работы провайдера.</p>
+</li>
+<li>
+<p><strong>group_providers</strong> (строка) - группа, к которой относится данный провайдер. Используется для ограничения множества провайдеров, в которые происходит попытка логина. Может быть пустой или отсутствовать. Конкретная группа передается в качестве параметра в сервлете логина, пользователь может иметь возможность явно выбирать группу провайдеров при подключении.</p>
+</li>
+<li>
+<p><strong>url</strong> (строка) - полный путь к XML-файлу, содержащему данные о пользователях.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/vendor/lunr-languages.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

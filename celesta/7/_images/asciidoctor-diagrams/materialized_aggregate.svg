@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" height="128" preserveAspectRatio="xMidYMid meet" xml:space="preserve" version="1.1" viewBox="0 0 593 128" width="593">
+<style type="text/css">
+<![CDATA[
+.title_font {fill:#000000; text-anchor:middle;
+font-family:Roboto; font-size:20pt; font-weight:normal; font-style:normal; }
+.literal_font {fill:#000000; text-anchor:middle;
+font-family:Roboto; font-size:14pt; font-weight:normal; font-style:normal; }
+.token_font {fill:#000000; text-anchor:middle;
+font-family:Roboto; font-size:16pt; font-weight:normal; font-style:normal; }
+.box_font {fill:#000000; text-anchor:middle;
+font-family:Roboto; font-size:14pt; font-weight:normal; font-style:normal; }
+.bubble_font {fill:#000000; text-anchor:middle;
+font-family:Roboto; font-size:14pt; font-weight:normal; font-style:normal; }
+.label {fill: #000; text-anchor:middle; font-size:16pt; font-weight:bold; font-family:Sans;}
+.link {fill: #0D47A1;}
+.link:hover {fill: #0D47A1; text-decoration:underline;}
+.link:visited {fill: #4A148C;}
+]]>
+</style>
+<defs>
+<marker id="arrow" markerHeight="4" markerUnits="strokeWidth" markerWidth="5" orient="auto" refX="2.5" refY="2">
+<path d="M0,0 L0.5,2 L0,4 L4.5,2 z" fill="#000000"/>
+</marker>
+</defs>
+<rect fill="white" height="100%" width="100%"/>
+<circle cx="13" cy="63" fill="#ffffff" r="3" stroke="#000000" stroke-width="2"/>
+<path d="M93,78 A14,14 0 0,1 93,50 H148 A14,14 0 0,1 148,78 z" fill="#ffffff" fill-opacity="1.0" stroke="#000000" stroke-width="2"/>
+<text class="bubble_font" x="120" y="69">COUNT</text>
+<path d="M194,79 A15,15 0 0,1 194,49 H201 A15,15 0 0,1 201,79 z" fill="#ffffff" fill-opacity="1.0" stroke="#000000" stroke-width="2"/>
+<text class="token_font" x="197" y="69">(</text>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="161" x2="175" y1="63" y2="63"/>
+<path d="M248,79 A15,15 0 0,1 248,49 H257 A15,15 0 0,1 257,79 z" fill="#ffffff" fill-opacity="1.0" stroke="#000000" stroke-width="2"/>
+<text class="token_font" x="252" y="69">*</text>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="215" x2="229" y1="63" y2="63"/>
+<path d="M304,79 A15,15 0 0,1 304,49 H311 A15,15 0 0,1 311,79 z" fill="#ffffff" fill-opacity="1.0" stroke="#000000" stroke-width="2"/>
+<text class="token_font" x="307" y="69">)</text>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="271" x2="285" y1="63" y2="63"/>
+<path d="M95,117 A14,14 0 0,1 95,89 H129 A14,14 0 0,1 129,117 z" fill="#ffffff" fill-opacity="1.0" stroke="#000000" stroke-width="2"/>
+<text class="bubble_font" x="112" y="108">SUM</text>
+<path d="M175,118 A15,15 0 0,1 175,88 H182 A15,15 0 0,1 182,118 z" fill="#ffffff" fill-opacity="1.0" stroke="#000000" stroke-width="2"/>
+<text class="token_font" x="178" y="108">(</text>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="142" x2="156" y1="102" y2="102"/>
+<rect fill="#ffffff" fill-opacity="1.0" height="28" stroke="#000000" stroke-width="2" width="57" x="214" y="89"/>
+<a xlink:href="1050_celesta_sql.html#term" target="_parent"><text class="box_font link" x="242" y="108">term</text></a>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="196" x2="210" y1="102" y2="102"/>
+<path d="M303,118 A15,15 0 0,1 303,88 H310 A15,15 0 0,1 310,118 z" fill="#ffffff" fill-opacity="1.0" stroke="#000000" stroke-width="2"/>
+<text class="token_font" x="306" y="108">)</text>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="270" x2="284" y1="102" y2="102"/>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="33" x2="75" y1="63" y2="63"/>
+<line stroke="#000000" stroke-width="2" x1="326" x2="374" y1="63" y2="63"/>
+<path d="M52,82 A19,19 0 0,0 33,63" fill="none" stroke="#000000" stroke-width="2"/>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="71" x2="77" y1="102" y2="102"/>
+<line stroke="#000000" stroke-width="2" x1="325" x2="335" y1="102" y2="102"/>
+<path d="M52,83 A19,19 0 0,0 71,102" fill="none" stroke="#000000" stroke-width="2"/>
+<path d="M335,102 A19,19 0 0,0 354,83" fill="none" stroke="#000000" stroke-width="2"/>
+<path d="M373,63 A19,19 0 0,0 354,82" fill="none" stroke="#000000" stroke-width="2"/>
+<line stroke="#000000" stroke-width="2" x1="52" x2="52" y1="83" y2="82"/>
+<line stroke="#000000" stroke-width="2" x1="354" x2="354" y1="83" y2="82"/>
+<path d="M404,78 A14,14 0 0,1 404,50 H424 A14,14 0 0,1 424,78 z" fill="#ffffff" fill-opacity="1.0" stroke="#000000" stroke-width="2"/>
+<text class="bubble_font" x="414" y="69">AS</text>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="372" x2="386" y1="63" y2="63"/>
+<path d="M462,78 H553 L560,64 L553,50 H462 L455,64 z" fill="#ffffff" fill-opacity="1.0" stroke="#000000" stroke-width="2"/>
+<text class="literal_font" x="507" y="69">field alias</text>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="437" x2="451" y1="63" y2="63"/>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="15" x2="29" y1="63" y2="63"/>
+<circle cx="580" cy="63" fill="#ffffff" r="3" stroke="#000000" stroke-width="2"/>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="559" x2="573" y1="63" y2="63"/>
+<text class="title_font" x="164" y="28">materialized_aggregate</text>
+</svg>

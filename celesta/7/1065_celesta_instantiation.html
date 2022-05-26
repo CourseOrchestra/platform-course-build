@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Создание экземпляра Celesta :: Платформа КУРС</title>
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">Платформа КУРС</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Поиск">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="../../index.html"><img src="../../_/img/course-orchestra-logo.svg" width="60rem"></a>
+        <!--div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div-->
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="celesta" data-version="7">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="1010_what_is_celesta.html">Челеста</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1010_what_is_celesta.html">Что такое Celesta?</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1012_demo.html">Демонстрационный пример</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1013_maven_plugin.html">Maven-плагин</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1015_vocabulary.html">Словарь основных понятий Celesta</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1020_celesta_start.html">Операции, выполняемые при инициализации Celesta</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1030_basic_settings.html">Параметры конфигурации Celesta</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1040_system_tables.html">Системные таблицы Celesta</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1050_celesta_sql.html">Язык Celesta-SQL</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1060_celesta_doc.html">CelestaDoc</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="1065_celesta_instantiation.html">Создание экземпляра Celesta</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1070_call_context.html">Контекст вызова</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1080_data_accessors.html">Работа с данными через классы доступа к данным (курсоры)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1088_security_logging.html">Распределение прав доступа и протоколирование изменений</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1090_blob.html">BLOB-поля</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1100_option.html">Options-поля</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1102_dynamic.html">Динамический доступ к данным</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1105_triggers.html">Триггеры</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1107_xrec.html">Объект xRec</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1110_lost_updates_protection.html">Защита от потерянных обновлений</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1120_meta.html">Метаданные Celesta</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="1130_celesta_unit.html">CelestaUnit</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="2005_best_practices.html">Лучшие практики написания кода Celesta</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="2010_supported_rdbms.html">Особенности работы Celesta с поддерживаемыми типами СУБД</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="2020_dbschema.html">Проектирование базы данных Celesta в DBSchema</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Челеста</span>
+    <span class="version">7</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../mellophone/2/general.html">Мелофон</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../mellophone/2/general.html">2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../doc/1/st2-ui-state-in-url.html">Платформа КУРС</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../doc/1/st2-ui-state-in-url.html">1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="1010_what_is_celesta.html">Челеста</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="1010_what_is_celesta.html">7</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../doc/1/general.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="1010_what_is_celesta.html">Челеста</a></li>
+    <li><a href="1065_celesta_instantiation.html">Создание экземпляра Celesta</a></li>
+  </ul>
+</nav>
+<!--  -->
+<!--  -->
+<!--  <div class="edit-this-page"><a href="file:///usr/src/app/target/doc/components/celesta/target/antora/modules/ROOT/pages/1065_celesta_instantiation.adoc">Редактировать страницу</a></div>-->
+<!--  -->
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Содержание" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Создание экземпляра Celesta</h1>
+<div class="sect1">
+<h2 id="_методы_celesta_createinstance">
+<a class="anchor" href="#_%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B_celesta_createinstance"></a>1. Методы <code>Celesta.createInstance</code>
+</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Чтобы начать работать с Celesta, должен быть создан экземпляр класса <a href="https://courseorchestra.github.io/celesta/apidocs/index.html?ru/curs/celesta/Celesta.html"><code>Celesta</code></a>.
+Обычно создаётся всего один объект с типом <code>Celesta</code> на всё приложение, поэтому он должен быть сохранён в синглетоне либо управляться фреймворком Spring.</p>
+</div>
+<div class="paragraph">
+<p>Если вы используете <a href="#quick_start_demo"><code>spring-boot-starter-celesta</code></a>, экземпляр <code>Celesta</code> создаётся автоматически и доступен как Spring bean.</p>
+</div>
+<div class="paragraph">
+<p>Если вы создаёте экземпляр Celesta самостоятельно, вы должны создать  <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Properties.html"><code>Properties</code></a>, содержащие <a href="1030_basic_settings.html#basic_settings_section">настройки Celesta</a>  и затем использовать один из следующих статических методов класса <a href="https://courseorchestra.github.io/celesta/apidocs/index.html?ru/curs/celesta/Celesta.html"><code>Celesta</code></a>:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>Celesta createInstance(Properties properties)</code></dt>
+<dd>
+<p>Создаёт Celesta с использованием предоставленных параметров и и собственным пулом соединений.</p>
+</dd>
+<dt class="hdlist1"><code>Celesta createInstance(Properties properties, DataSource dataSource)</code></dt>
+<dd>
+<p>Создаёт Celesta с использованием предоставленных параметров и  <a href="https://docs.oracle.com/javase/8/docs/api/javax/sql/DataSource.html"><code>DataSource</code></a>. Вы можете использовать данный метод если хотите предоставить внешний пул соединений для Celesta.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Важно"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Внешний пул соединений должен быть сконфигурирован так, чтобы возвращать соединения с <code>autoCommit</code> установленным в <code>false</code>.</p>
+</li>
+<li>
+<p>Вам всё ещё необходимо прописать параметр  <code>rdbms.connection.url</code>, чтобы Celesta определила тип базы данных, с которой она работает. Но т. к. этот параметр не будет использоваться для того, чтобы подключаться к базе данных, достаточно указать только префикс, например <code>jdbc:postgresql</code>, <code>jdbc:sqlserver</code> и т. д.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/vendor/lunr-languages.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

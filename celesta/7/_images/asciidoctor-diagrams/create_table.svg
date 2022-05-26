@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" height="234" preserveAspectRatio="xMidYMid meet" xml:space="preserve" version="1.1" viewBox="0 0 727 234" width="727">
+<style type="text/css">
+<![CDATA[
+.title_font {fill:#000000; text-anchor:middle;
+font-family:Roboto; font-size:20pt; font-weight:normal; font-style:normal; }
+.literal_font {fill:#000000; text-anchor:middle;
+font-family:Roboto; font-size:14pt; font-weight:normal; font-style:normal; }
+.token_font {fill:#000000; text-anchor:middle;
+font-family:Roboto; font-size:16pt; font-weight:normal; font-style:normal; }
+.box_font {fill:#000000; text-anchor:middle;
+font-family:Roboto; font-size:14pt; font-weight:normal; font-style:normal; }
+.bubble_font {fill:#000000; text-anchor:middle;
+font-family:Roboto; font-size:14pt; font-weight:normal; font-style:normal; }
+.label {fill: #000; text-anchor:middle; font-size:16pt; font-weight:bold; font-family:Sans;}
+.link {fill: #0D47A1;}
+.link:hover {fill: #0D47A1; text-decoration:underline;}
+.link:visited {fill: #4A148C;}
+]]>
+</style>
+<defs>
+<marker id="arrow" markerHeight="4" markerUnits="strokeWidth" markerWidth="5" orient="auto" refX="2.5" refY="2">
+<path d="M0,0 L0.5,2 L0,4 L4.5,2 z" fill="#000000"/>
+</marker>
+</defs>
+<rect fill="white" height="100%" width="100%"/>
+<circle cx="13" cy="63" fill="#ffffff" r="3" stroke="#000000" stroke-width="2"/>
+<path d="M47,78 A14,14 0 0,1 47,50 H108 A14,14 0 0,1 108,78 z" fill="#ffffff" fill-opacity="1.0" stroke="#000000" stroke-width="2"/>
+<text class="bubble_font" x="77" y="69">CREATE</text>
+<path d="M153,78 A14,14 0 0,1 153,50 H202 A14,14 0 0,1 202,78 z" fill="#ffffff" fill-opacity="1.0" stroke="#000000" stroke-width="2"/>
+<text class="bubble_font" x="177" y="69">TABLE</text>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="121" x2="135" y1="63" y2="63"/>
+<path d="M240,78 H346 L353,64 L346,50 H240 L233,64 z" fill="#ffffff" fill-opacity="1.0" stroke="#000000" stroke-width="2"/>
+<text class="literal_font" x="293" y="69">table_name</text>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="215" x2="229" y1="63" y2="63"/>
+<path d="M175,186 A15,15 0 0,1 175,156 H182 A15,15 0 0,1 182,186 z" fill="#ffffff" fill-opacity="1.0" stroke="#000000" stroke-width="2"/>
+<text class="token_font" x="178" y="176">(</text>
+<rect fill="#ffffff" fill-opacity="1.0" height="28" stroke="#000000" stroke-width="2" width="158" x="233" y="157"/>
+<a xlink:href="1050_celesta_sql.html#table_constituent" target="_parent"><text class="box_font link" x="312" y="176">table_constituent</text></a>
+<path d="M309,224 A15,15 0 0,1 309,194 H315 A15,15 0 0,1 315,224 z" fill="#ffffff" fill-opacity="1.0" stroke="#000000" stroke-width="2"/>
+<text class="token_font" x="312" y="214">,</text>
+<line stroke="#000000" stroke-width="2" x1="233" x2="294" y1="208" y2="208"/>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="391" x2="334" y1="208" y2="208"/>
+<line stroke="#000000" stroke-width="2" x1="214" x2="233" y1="170" y2="170"/>
+<path d="M233,170 A9,9 0 0,0 224,179" fill="none" stroke="#000000" stroke-width="2"/>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="224" x2="224" y1="199" y2="193"/>
+<line stroke="#000000" stroke-width="2" x1="224" x2="224" y1="189" y2="179"/>
+<path d="M224,199 A9,9 0 0,0 233,208" fill="none" stroke="#000000" stroke-width="2"/>
+<path d="M400,179 A9,9 0 0,0 391,170" fill="none" stroke="#000000" stroke-width="2"/>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="400" x2="400" y1="179" y2="185"/>
+<line stroke="#000000" stroke-width="2" x1="400" x2="400" y1="189" y2="199"/>
+<path d="M391,208 A9,9 0 0,0 400,199" fill="none" stroke="#000000" stroke-width="2"/>
+<line stroke="#000000" stroke-width="2" x1="391" x2="400" y1="170" y2="170"/>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="196" x2="210" y1="170" y2="170"/>
+<path d="M432,186 A15,15 0 0,1 432,156 H439 A15,15 0 0,1 439,186 z" fill="#ffffff" fill-opacity="1.0" stroke="#000000" stroke-width="2"/>
+<text class="token_font" x="435" y="176">)</text>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="399" x2="413" y1="170" y2="170"/>
+<line stroke="#000000" stroke-width="2" x1="582" x2="583" y1="170" y2="170"/>
+<rect fill="#ffffff" fill-opacity="1.0" height="28" stroke="#000000" stroke-width="2" width="127" x="519" y="195"/>
+<a xlink:href="1050_celesta_sql.html#table_options" target="_parent"><text class="box_font link" x="582" y="214">table_options</text></a>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="471" x2="578" y1="170" y2="170"/>
+<line stroke="#000000" stroke-width="2" x1="583" x2="695" y1="170" y2="170"/>
+<path d="M490,189 A19,19 0 0,0 471,170" fill="none" stroke="#000000" stroke-width="2"/>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="509" x2="515" y1="208" y2="208"/>
+<line stroke="#000000" stroke-width="2" x1="646" x2="656" y1="208" y2="208"/>
+<path d="M490,189 A19,19 0 0,0 509,208" fill="none" stroke="#000000" stroke-width="2"/>
+<path d="M656,208 A19,19 0 0,0 675,189" fill="none" stroke="#000000" stroke-width="2"/>
+<path d="M694,170 A19,19 0 0,0 675,189" fill="none" stroke="#000000" stroke-width="2"/>
+<line stroke="#000000" stroke-width="2" x1="490" x2="490" y1="189" y2="189"/>
+<line stroke="#000000" stroke-width="2" x1="675" x2="675" y1="189" y2="189"/>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="453" x2="467" y1="170" y2="170"/>
+<line stroke="#000000" stroke-width="2" x1="353" x2="391" y1="63" y2="63"/>
+<path d="M400,72 A9,9 0 0,0 391,63" fill="none" stroke="#000000" stroke-width="2"/>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="400" x2="400" y1="72" y2="86"/>
+<line stroke="#000000" stroke-width="2" x1="400" x2="400" y1="90" y2="108"/>
+<path d="M391,117 A9,9 0 0,0 400,108" fill="none" stroke="#000000" stroke-width="2"/>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="391" x2="260" y1="117" y2="117"/>
+<line stroke="#000000" stroke-width="2" x1="256" x2="122" y1="117" y2="117"/>
+<path d="M122,117 A9,9 0 0,0 113,126" fill="none" stroke="#000000" stroke-width="2"/>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="113" x2="113" y1="126" y2="139"/>
+<line stroke="#000000" stroke-width="2" x1="113" x2="113" y1="143" y2="161"/>
+<path d="M113,161 A9,9 0 0,0 122,170" fill="none" stroke="#000000" stroke-width="2"/>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="122" x2="156" y1="170" y2="170"/>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="15" x2="29" y1="63" y2="63"/>
+<circle cx="714" cy="170" fill="#ffffff" r="3" stroke="#000000" stroke-width="2"/>
+<line marker-end="url(#arrow)" stroke="#000000" stroke-width="2" x1="693" x2="707" y1="170" y2="170"/>
+<text class="title_font" x="103" y="28">create_table</text>
+</svg>
