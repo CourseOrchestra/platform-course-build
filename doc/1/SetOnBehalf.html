@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Программные компоненты :: Платформа КУРС</title>
+    <title>Механизм логина от имени пользователя :: Платформа КУРС</title>
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
     <script>var uiRootPath = '../../_'</script>
@@ -72,7 +72,7 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="stack.html">Стек технологий по умолчанию</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="components.html">Программные компоненты</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -88,7 +88,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="FileStorage.html">Файловое хранилище</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="SetOnBehalf.html">Механизм логина от имени пользователя</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -149,12 +149,13 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="st2-ui-state-in-url.html">Платформа КУРС</a></li>
-    <li><a href="components.html">Программные компоненты</a></li>
+    <li><a href="examples.html">Актуальные примеры использования</a></li>
+    <li><a href="SetOnBehalf.html">Механизм логина от имени пользователя</a></li>
   </ul>
 </nav>
 <!--  -->
 <!--  -->
-<!--  <div class="edit-this-page"><a href="file:///usr/src/app/target/platform/modules/ROOT/pages/components.adoc">Редактировать страницу</a></div>-->
+<!--  <div class="edit-this-page"><a href="file:///usr/src/app/target/platform/modules/ROOT/pages/SetOnBehalf.adoc">Редактировать страницу</a></div>-->
 <!--  -->
 </div>
   <div class="content">
@@ -162,32 +163,101 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Программные компоненты</h1>
+<h1 class="page">Механизм логина от имени пользователя</h1>
+<div class="sect1">
+<h2 id="_общие_принципы">
+<a class="anchor" href="#_%D0%BE%D0%B1%D1%89%D0%B8%D0%B5_%D0%BF%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF%D1%8B"></a>Общие принципы</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Функционал, позволяющий пользователям системы авторизоваться
+от имени другого выбранного пользователя. Это может понадобиться в ряде случаев. Например:</p>
+</div>
 <div class="ulist">
-<div class="title">В платформу КУРС входят следующие компоненты:</div>
 <ul>
 <li>
-<p><a href="https://courseorchestra.github.io/asciidoctor-open-document/">Asciidoctor Open Document</a>;</p>
+<p>При передаче в управление учётной записи</p>
 </li>
 <li>
-<p><a href="../../celesta/7/1010_what_is_celesta.html" class="xref page">Celesta</a>;</p>
+<p>Необходимости службе поддержки взять управление для удалённой помощи пользователю</p>
 </li>
 <li>
-<p><a href="https://github.com/CourseOrchestra/hurdy-gurdy">Hurdy-Gurdy</a>;</p>
-</li>
-<li>
-<p><a href="https://github.com/CourseOrchestra/lyra">Lyra</a>;</p>
-</li>
-<li>
-<p><a href="../../mellophone/2/general.html" class="xref page">Mellophone</a>;</p>
-</li>
-<li>
-<p><a href="https://courseorchestra.github.io/xylophone/">Xylophone</a>.</p>
+<p>Необходимости входа администратора</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Все компоненты платформы КУРС зарегистрированы в <a href="https://reestr.digital.gov.ru/">едином реестре российских программ для электронных вычислительных машин и баз данных</a>: <a href="https://reestr.digital.gov.ru/reestr/305276/?sphrase_id=1407929">запись в реестре №3926 от 16.08.2017</a> произведена на основании приказа Министерства цифрового развития, связи и массовых коммуникаций Российской Федерации от 15.08.2017 №421.</p>
+<p>При работе под учётной записью пользователя логируется (пишется в журнал безопасности) кто совершает действия.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_методы_работы_механизма_логина_от_имени_пользователя">
+<a class="anchor" href="#_%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B_%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B_%D0%BC%D0%B5%D1%85%D0%B0%D0%BD%D0%B8%D0%B7%D0%BC%D0%B0_%D0%BB%D0%BE%D0%B3%D0%B8%D0%BD%D0%B0_%D0%BE%D1%82_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F"></a>Методы работы механизма логина от имени пользователя</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
+public UserInfoDTO getUserInfo(@RequestHeader("Authorization") String sessionId, HttpServletResponse response) {
+    final UserInfo userInfo = mellophone.user(new SystemCallContext(), sessionId);
+    return userService.getUserInfo(userInfo);
+}
+
+@Override
+public String setOnBehalfInfo(@RequestBody UserDTO request, @RequestHeader("Authorization") String sessionId,
+                             HttpServletResponse response) {
+    mellophone.setOnBehalfInfo(sessionId, request);
+    return "OK";
+}
+
+@Override
+public String backToAdminSession(@RequestBody UserInfoDTO request, @RequestHeader("Authorization") String sessionId,
+                              HttpServletResponse response) {
+    mellophone.backToAdminSession(sessionId, request);
+    return "OK";
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_реализация_механизма_установки_прав_пользователя_в_зависимости_от_способа_логина">
+<a class="anchor" href="#_%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F_%D0%BC%D0%B5%D1%85%D0%B0%D0%BD%D0%B8%D0%B7%D0%BC%D0%B0_%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B8_%D0%BF%D1%80%D0%B0%D0%B2_%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F_%D0%B2_%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8_%D0%BE%D1%82_%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D0%B0_%D0%BB%D0%BE%D0%B3%D0%B8%D0%BD%D0%B0"></a>Реализация механизма установки прав пользователя в зависимости от способа логина</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">            UserInfo userInfo = this.restTemplate.getForObject(url, UserInfo.class);
+            String userInfoSid = userInfo.getSid();
+
+            if (onBehalfUser != null) {
+                userInfo.setSid(onBehalfUser.getSid());
+                userInfo.setLogin(onBehalfUser.getLogin());
+                userInfo.setOriginatorSid(userInfoSid);
+                userInfo.setName(onBehalfUser.getFullName());
+                if (onBehalfUser.isAdmin()) {
+                    userInfo.setAdmin(onBehalfUser.isAdmin());
+                }
+                if (onBehalfUser.isTestAdmin()) {
+                    userInfo.setTestAdmin(onBehalfUser.isTestAdmin());
+                }
+                userInfo.setOnBehalf(true);
+            }
+            else {
+                userCursor.tryGet(userInfoSid);
+                userInfo.setOriginatorSid(userInfoSid);
+                userInfo.setName(userCursor.getFullName());
+                if (userCursor.getIsAdmin()) {
+                    userInfo.setAdmin(userCursor.getIsAdmin());
+                }
+                if (userCursor.getIsTestAdmin()) {
+                    userInfo.setTestAdmin(userCursor.getIsTestAdmin());
+                }
+                userInfo.setOnBehalf(false);
+            }
+
+            return userInfo;</code></pre>
+</div>
+</div>
+</div>
 </div>
 </article>
   </div>

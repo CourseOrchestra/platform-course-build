@@ -86,6 +86,12 @@
     <a class="nav-link" href="st2-ui-menu.html">Меню приложения</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="FileStorage.html">Файловое хранилище</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="SetOnBehalf.html">Механизм логина от имени пользователя</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="st2-logging.html">Журналирование (логирование) результатов операций в СУБД</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -197,46 +203,57 @@
 <div class="listingblock">
 <div class="title">Модель меню</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">data: () =&gt; ({
-  links: [
-    {
-      text: 'Прохождение тестовых заданий',
-      to: '/form/exam-attempts/create',
-      extra: '/form/exam-attempts/data',
-    },
-    {
-      text: 'Мультикейс',
-      to: '/form/multicase/create',
-      extra: '/form/multicase/data',
-    },
-    {
-      text: 'Аудиторное тестирование',
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">generateLinks() {
+  this.links = [];
+
+  this.links.push({
+    text: this.$t('Navigator.main'),
+    to: '/form/main-page/create'
+  });
+
+  this.links.push({
+    text: this.$t('Navigator.user'),
+    to: '/form/user/data',
+  });
+
+  this.links.push({
+    text: this.$t('Navigator.exam_attempts'),
+    to: '/form/exam-attempts/create',
+    extra: '/form/exam-attempts/data',
+  });
+
+  this.links.push({
+    text: this.$t('Navigator.multicase'),
+    to: '/form/multicase/create',
+    extra: '/form/multicase/data',
+  });
+
+  if (this.currentUser.testAdmin) {
+    this.links.push({
+      text: this.$t('Navigator.classroom_exam'),
       to: '/form/classroom-exam/create',
       extra: '/form/classroom-exam/data',
-    },
-    {
-      text: 'Личная информация',
-      to: '/form/user/data',
-    },</code></pre>
+    });
+  }</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Свойство, определяющее, какой элемент раскрыт</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;v-list-group v-else :key="link.text" no-action
-    :group="link.subLinks.reduce(function(a,b)
-       {return a + '|(' + b.to + ')|(' + b.extra + ')'}, '(---)')"&gt;</code></pre>
+              :group="link.subLinks.reduce(function(a,b)
+         {return a + '|(' + b.to + ')|(' + b.extra + ')'}, '(---)')"&gt;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Класс, определяющий выделнный элемент</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;v-list-item
-  v-for="sublink in link.subLinks"
-  :to="sublink.to"
-  :key="sublink.text"
-  :class="(sublink.extra &amp;&amp; $route.path.match(sublink.extra)) ?
-    'v-list-item--active' : ''"
+    v-for="sublink in link.subLinks"
+    :to="sublink.to"
+    :key="sublink.text"
+    :class="(sublink.extra &amp;&amp; $route.path.match(sublink.extra)) ?
+      'v-list-item--active' : ''"
 &gt;</code></pre>
 </div>
 </div>
@@ -246,7 +263,7 @@
   </div>
 </main>
 </div>
-<script src="../../_/js/site.js"></script>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
 <script async src="../../_/js/vendor/highlight.js"></script>
 <script src="../../_/js/vendor/lunr.js"></script>
 <script src="../../_/js/vendor/lunr-languages.js"></script>

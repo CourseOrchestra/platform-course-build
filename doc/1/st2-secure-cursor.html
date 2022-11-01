@@ -86,6 +86,12 @@
     <a class="nav-link" href="st2-ui-menu.html">Меню приложения</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="FileStorage.html">Файловое хранилище</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="SetOnBehalf.html">Механизм логина от имени пользователя</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="st2-logging.html">Журналирование (логирование) результатов операций в СУБД</a>
   </li>
   <li class="nav-item is-current-page" data-depth="2">
@@ -175,31 +181,45 @@
 public UserDTO saveUserData(@RequestBody UserDTO request,
                             @RequestHeader("Authorization") String sessionId,
                             HttpServletResponse response) {
-    UserInfo userInfo = mellophone.user(sessionId);
-    return userService.saveUserData(new SystemCallContext(), userInfo, request);
+    UserInfo userInfo = mellophone.user(new SystemCallContext(), sessionId);
+    return unboxOrError(userService.saveUserData(new SystemCallContext(), userInfo, null, request, response),
+            response);
 }</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Пример функции, возвращающей данные о пользователе в случае использование Mellophone</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
-public UserInfo user(String sessionId) throws AuthException {
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">UserInfo userInfo = this.restTemplate.getForObject(url, UserInfo.class);
+String userInfoSid = userInfo.getSid();
 
-    String url = UriComponentsBuilder.fromUriString(properties.getMellophoneUrl())
-            .path(ISAUTHENTICATED_PATH)
-            .queryParam(SESID_PARAM, sessionId)
-            .build()
-            .toUriString();
-    try {
-        UserInfo userInfo = this.restTemplate.getForObject(url, UserInfo.class);
-        userInfo.setStudent(true);
-        userInfo.setOriginatorSid(userInfo.getSid());
-        return userInfo;
-    } catch (HttpStatusCodeException ex) {
-        throw new AuthException(ex);
+if (onBehalfUser != null) {
+    userInfo.setSid(onBehalfUser.getSid());
+    userInfo.setLogin(onBehalfUser.getLogin());
+    userInfo.setOriginatorSid(userInfoSid);
+    userInfo.setName(onBehalfUser.getFullName());
+    if (onBehalfUser.isAdmin()) {
+        userInfo.setAdmin(onBehalfUser.isAdmin());
     }
-}</code></pre>
+    if (onBehalfUser.isTestAdmin()) {
+        userInfo.setTestAdmin(onBehalfUser.isTestAdmin());
+    }
+    userInfo.setOnBehalf(true);
+}
+else {
+    userCursor.tryGet(userInfoSid);
+    userInfo.setOriginatorSid(userInfoSid);
+    userInfo.setName(userCursor.getFullName());
+    if (userCursor.getIsAdmin()) {
+        userInfo.setAdmin(userCursor.getIsAdmin());
+    }
+    if (userCursor.getIsTestAdmin()) {
+        userInfo.setTestAdmin(userCursor.getIsTestAdmin());
+    }
+    userInfo.setOnBehalf(false);
+}
+
+return userInfo;</code></pre>
 </div>
 </div>
 </div>
@@ -238,7 +258,7 @@ public class SecureUsersCursor extends UserCursor {
 <div class="listingblock">
 <div class="title">Пример вызова безопасного курсора</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">SecureUsersCursor userCursor = new SecureUsersCursor(context, userInfo);</code></pre>
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java"></code></pre>
 </div>
 </div>
 </div>
@@ -247,7 +267,7 @@ public class SecureUsersCursor extends UserCursor {
   </div>
 </main>
 </div>
-<script src="../../_/js/site.js"></script>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
 <script async src="../../_/js/vendor/highlight.js"></script>
 <script src="../../_/js/vendor/lunr.js"></script>
 <script src="../../_/js/vendor/lunr-languages.js"></script>
