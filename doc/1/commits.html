@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Безопасность доступа к объектам БД :: Платформа КУРС</title>
+    <title>Соглашение о коммитах :: Платформа КУРС</title>
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
     <script>var uiRootPath = '../../_'</script>
@@ -75,7 +75,7 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="components.html">Программные компоненты</a>
   </li>
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="commits.html">Соглашение о коммитах</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -103,7 +103,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="st2-logging.html">Журналирование (логирование) результатов операций в СУБД</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="st2-secure-cursor.html">Безопасность доступа к объектам БД</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -158,13 +158,12 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="st2-ui-state-in-url.html">Платформа КУРС</a></li>
-    <li><a href="examples.html">Актуальные примеры использования</a></li>
-    <li><a href="st2-secure-cursor.html">Безопасность доступа к объектам БД</a></li>
+    <li><a href="commits.html">Соглашение о коммитах</a></li>
   </ul>
 </nav>
 <!--  -->
 <!--  -->
-<!--  <div class="edit-this-page"><a href="file:///usr/src/app/target/platform/modules/ROOT/pages/st2-secure-cursor.adoc">Редактировать страницу</a></div>-->
+<!--  <div class="edit-this-page"><a href="file:///usr/src/app/target/platform/modules/ROOT/pages/commits.adoc">Редактировать страницу</a></div>-->
 <!--  -->
 </div>
   <div class="content">
@@ -172,102 +171,52 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Безопасность доступа к объектам БД</h1>
+<h1 class="page">Соглашение о коммитах</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Безопасность доступа к объектам БД обеспечивается с помощью безопасных курсоров, наследующих курсоры Celesta.</p>
+<p>Для структурирования истории коммитов и обеспечения возможности автоматизации обработки данных изменения исходного кода разработчики придерживаются спецификации <a href="https://www.conventionalcommits.org/ru/v1.0.0/">"Соглашение о коммитах"</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_получение_данных_о_пользователя">
-<a class="anchor" href="#_%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85_%D0%BE_%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F"></a>Получение данных о пользователя</h2>
+<h2 id="_структруа_сообщения_коммита">
+<a class="anchor" href="#_%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%80%D1%83%D0%B0_%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D1%8F_%D0%BA%D0%BE%D0%BC%D0%BC%D0%B8%D1%82%D0%B0"></a>Структруа сообщения коммита</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
-public UserDTO saveUserData(@RequestBody UserDTO request,
-                            @RequestHeader("Authorization") String sessionId,
-                            HttpServletResponse response) {
-    UserInfo userInfo = mellophone.user(new SystemCallContext(), sessionId);
-    return unboxOrError(userService.saveUserData(new SystemCallContext(), userInfo, null, request, response),
-            response);
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Пример функции, возвращающей данные о пользователе в случае использование Mellophone</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">UserInfo userInfo = this.restTemplate.getForObject(url, UserInfo.class);
-String userInfoSid = userInfo.getSid();
+<pre>&lt;тип&gt;[необязательный контекст]: &lt;описание&gt;
 
-if (onBehalfUser != null) {
-    userInfo.setSid(onBehalfUser.getSid());
-    userInfo.setLogin(onBehalfUser.getLogin());
-    userInfo.setOriginatorSid(userInfoSid);
-    userInfo.setName(onBehalfUser.getFullName());
-    if (onBehalfUser.isAdmin()) {
-        userInfo.setAdmin(onBehalfUser.isAdmin());
-    }
-    if (onBehalfUser.isTestAdmin()) {
-        userInfo.setTestAdmin(onBehalfUser.isTestAdmin());
-    }
-    userInfo.setOnBehalf(true);
-}
-else {
-    userCursor.tryGet(userInfoSid);
-    userInfo.setOriginatorSid(userInfoSid);
-    userInfo.setName(userCursor.getFullName());
-    if (userCursor.getIsAdmin()) {
-        userInfo.setAdmin(userCursor.getIsAdmin());
-    }
-    if (userCursor.getIsTestAdmin()) {
-        userInfo.setTestAdmin(userCursor.getIsTestAdmin());
-    }
-    userInfo.setOnBehalf(false);
-}
+[необязательное тело]
 
-return userInfo;</code></pre>
+[необязательная(ые) сноска(и)]</pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Описание коммита начинается с глагола в пассивном залоге прошедшего времени.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_работа_с_безопасным_курсором">
-<a class="anchor" href="#_%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0_%D1%81_%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D1%8B%D0%BC_%D0%BA%D1%83%D1%80%D1%81%D0%BE%D1%80%D0%BE%D0%BC"></a>Работа с безопасным курсором</h2>
+<h2 id="_примеры">
+<a class="anchor" href="#_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B"></a>Примеры</h2>
 <div class="sectionbody">
 <div class="listingblock">
-<div class="title">Пример безопасного курсора</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Log4j2
-public class SecureUsersCursor extends UserCursor {
-    private final UserInfo userInfo;
-
-    public SecureUsersCursor(CallContext context, UserInfo userInfo) {
-        super(context);
-        this.userInfo = userInfo;
-    }
-
-    @Override
-    public boolean tryGet(String objectSid) {
-        if (isAuthorized(objectSid)) {
-            return super.tryGet(objectSid);
-        } else {
-            throw new St2ApiException("User is not authorized for making requested changes");
-        }
-    }
-
-    private boolean isAuthorized(String objectSid) {
-        return this.userInfo.getSid().equals(objectSid);
-    }
-}</code></pre>
+<pre>feat: Добавлена поддержка русского языка
+feat: Added Russian lang support</pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Пример вызова безопасного курсора</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">SecureUsersCursor userCursor = new SecureUsersCursor(context, userInfo);</code></pre>
+<pre>feat: Добавлена рассылка email покупателям
+feat: Added sending email to clients</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>feat: Разрешено конфигу расширять другие конфиги
+feat: Allowed config to extend other configs</pre>
 </div>
 </div>
 </div>

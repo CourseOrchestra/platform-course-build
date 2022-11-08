@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Безопасность доступа к объектам БД :: Платформа КУРС</title>
+    <title>Интернационализация и локализация :: Платформа КУРС</title>
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
     <script>var uiRootPath = '../../_'</script>
@@ -94,7 +94,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="SetOnBehalf.html">Механизм логина от имени пользователя</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="intern_local.html">Интернационализация и локализация</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -103,7 +103,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="st2-logging.html">Журналирование (логирование) результатов операций в СУБД</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="st2-secure-cursor.html">Безопасность доступа к объектам БД</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -159,12 +159,12 @@
   <ul>
     <li><a href="st2-ui-state-in-url.html">Платформа КУРС</a></li>
     <li><a href="examples.html">Актуальные примеры использования</a></li>
-    <li><a href="st2-secure-cursor.html">Безопасность доступа к объектам БД</a></li>
+    <li><a href="intern_local.html">Интернационализация и локализация</a></li>
   </ul>
 </nav>
 <!--  -->
 <!--  -->
-<!--  <div class="edit-this-page"><a href="file:///usr/src/app/target/platform/modules/ROOT/pages/st2-secure-cursor.adoc">Редактировать страницу</a></div>-->
+<!--  <div class="edit-this-page"><a href="file:///usr/src/app/target/platform/modules/ROOT/pages/intern_local.adoc">Редактировать страницу</a></div>-->
 <!--  -->
 </div>
   <div class="content">
@@ -172,102 +172,117 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Безопасность доступа к объектам БД</h1>
-<div id="preamble">
+<h1 class="page">Интернационализация и локализация</h1>
+<div class="sect1">
+<h2 id="_общие_принципы">
+<a class="anchor" href="#_%D0%BE%D0%B1%D1%89%D0%B8%D0%B5_%D0%BF%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF%D1%8B"></a>Общие принципы</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Безопасность доступа к объектам БД обеспечивается с помощью безопасных курсоров, наследующих курсоры Celesta.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Интернационализация осуществлена при помощи подключения плагина <a href="https://vue-i18n.intlify.dev/">vue3-i18n</a></p>
+</li>
+<li>
+<p>Для настройки новой локали создаётся json файл с определённой структурой со следующими правилами:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Вложенная структруа должна иметь четыре уровня</p>
+</li>
+<li>
+<p>Верхний уровень определяет название экранной формы</p>
+</li>
+<li>
+<p>Второй уровень - тип элемента управления (кнопки, поля таблицы, поля карточки и т.п.)</p>
+</li>
+<li>
+<p>Третий уровень - название элемента управления</p>
+</li>
+<li>
+<p>Нижний уроваень - вид константы для элемента управления (заголовок, всплывающая подсказка)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_получение_данных_о_пользователя">
-<a class="anchor" href="#_%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85_%D0%BE_%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F"></a>Получение данных о пользователя</h2>
+<h2 id="_подключение_плагина_интернационализации">
+<a class="anchor" href="#_%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%D0%B0_%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8"></a>Подключение плагина интернационализации</h2>
 <div class="sectionbody">
 <div class="listingblock">
+<div class="title">package.json</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
-public UserDTO saveUserData(@RequestBody UserDTO request,
-                            @RequestHeader("Authorization") String sessionId,
-                            HttpServletResponse response) {
-    UserInfo userInfo = mellophone.user(new SystemCallContext(), sessionId);
-    return unboxOrError(userService.saveUserData(new SystemCallContext(), userInfo, null, request, response),
-            response);
-}</code></pre>
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"vue-i18n": "^9.2.2",</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Пример функции, возвращающей данные о пользователе в случае использование Mellophone</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">UserInfo userInfo = this.restTemplate.getForObject(url, UserInfo.class);
-String userInfoSid = userInfo.getSid();
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"@intlify/vite-plugin-vue-i18n": "^6.0.3",</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">vite.config.ts</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">vueI18n({
+  include: resolve(__dirname, "./src/locales/**"),
+}),</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Подключение плагина</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">import { createI18n } from "vue-i18n";
+import messages from "@intlify/vite-plugin-vue-i18n/messages";
 
-if (onBehalfUser != null) {
-    userInfo.setSid(onBehalfUser.getSid());
-    userInfo.setLogin(onBehalfUser.getLogin());
-    userInfo.setOriginatorSid(userInfoSid);
-    userInfo.setName(onBehalfUser.getFullName());
-    if (onBehalfUser.isAdmin()) {
-        userInfo.setAdmin(onBehalfUser.isAdmin());
-    }
-    if (onBehalfUser.isTestAdmin()) {
-        userInfo.setTestAdmin(onBehalfUser.isTestAdmin());
-    }
-    userInfo.setOnBehalf(true);
-}
-else {
-    userCursor.tryGet(userInfoSid);
-    userInfo.setOriginatorSid(userInfoSid);
-    userInfo.setName(userCursor.getFullName());
-    if (userCursor.getIsAdmin()) {
-        userInfo.setAdmin(userCursor.getIsAdmin());
-    }
-    if (userCursor.getIsTestAdmin()) {
-        userInfo.setTestAdmin(userCursor.getIsTestAdmin());
-    }
-    userInfo.setOnBehalf(false);
-}
+const i18n = createI18n({
+  legacy: false,
+  locale: import.meta.env.VITE_APP_I18N_LOCALE,
+  fallbackLocale: import.meta.env.VITE_APP_I18N_LOCALE,
+  messages,
+});
 
-return userInfo;</code></pre>
+const $tt = i18n.global.t;
+
+export { i18n, $tt };</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_работа_с_безопасным_курсором">
-<a class="anchor" href="#_%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0_%D1%81_%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D1%8B%D0%BC_%D0%BA%D1%83%D1%80%D1%81%D0%BE%D1%80%D0%BE%D0%BC"></a>Работа с безопасным курсором</h2>
+<h2 id="_примеры_использования_интернационализации">
+<a class="anchor" href="#_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B_%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F_%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8"></a>Примеры использования интернационализации</h2>
 <div class="sectionbody">
 <div class="listingblock">
-<div class="title">Пример безопасного курсора</div>
+<div class="title">Интернационализация в шаблоне (например, заголовки, футеры)</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Log4j2
-public class SecureUsersCursor extends UserCursor {
-    private final UserInfo userInfo;
-
-    public SecureUsersCursor(CallContext context, UserInfo userInfo) {
-        super(context);
-        this.userInfo = userInfo;
-    }
-
-    @Override
-    public boolean tryGet(String objectSid) {
-        if (isAuthorized(objectSid)) {
-            return super.tryGet(objectSid);
-        } else {
-            throw new St2ApiException("User is not authorized for making requested changes");
-        }
-    }
-
-    private boolean isAuthorized(String objectSid) {
-        return this.userInfo.getSid().equals(objectSid);
-    }
-}</code></pre>
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;h1 class="text-center"&gt;{{ $t("UrlStatePage.title") }}&lt;/h1&gt;</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Пример вызова безопасного курсора</div>
+<div class="title">Интернационализация в компоненте</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">SecureUsersCursor userCursor = new SecureUsersCursor(context, userInfo);</code></pre>
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">import { useI18n } from "vue-i18n";</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">text: useI18n().t("GridPage.columns.name"),</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Интернационализация в произвольном месте кода (например, содержимое грида)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">import { $tt } from "@/plugins/i18n";</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">for (const header of headers) {
+  header.text = $tt("GridPage.columns." + header.value);
+}</code></pre>
 </div>
 </div>
 </div>

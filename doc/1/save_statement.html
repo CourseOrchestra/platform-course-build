@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Безопасность доступа к объектам БД :: Платформа КУРС</title>
+    <title>Сохраниение состояния :: Платформа КУРС</title>
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
     <script>var uiRootPath = '../../_'</script>
@@ -97,13 +97,13 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="intern_local.html">Интернационализация и локализация</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="save_statement.html">Сохраниение состояния</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="st2-logging.html">Журналирование (логирование) результатов операций в СУБД</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="st2-secure-cursor.html">Безопасность доступа к объектам БД</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -159,12 +159,12 @@
   <ul>
     <li><a href="st2-ui-state-in-url.html">Платформа КУРС</a></li>
     <li><a href="examples.html">Актуальные примеры использования</a></li>
-    <li><a href="st2-secure-cursor.html">Безопасность доступа к объектам БД</a></li>
+    <li><a href="save_statement.html">Сохраниение состояния</a></li>
   </ul>
 </nav>
 <!--  -->
 <!--  -->
-<!--  <div class="edit-this-page"><a href="file:///usr/src/app/target/platform/modules/ROOT/pages/st2-secure-cursor.adoc">Редактировать страницу</a></div>-->
+<!--  <div class="edit-this-page"><a href="file:///usr/src/app/target/platform/modules/ROOT/pages/save_statement.adoc">Редактировать страницу</a></div>-->
 <!--  -->
 </div>
   <div class="content">
@@ -172,102 +172,116 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Безопасность доступа к объектам БД</h1>
-<div id="preamble">
+<h1 class="page">Сохраниение состояния</h1>
+<div class="sect1">
+<h2 id="_общие_принципы">
+<a class="anchor" href="#_%D0%BE%D0%B1%D1%89%D0%B8%D0%B5_%D0%BF%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF%D1%8B"></a>Общие принципы</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Безопасность доступа к объектам БД обеспечивается с помощью безопасных курсоров, наследующих курсоры Celesta.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Для управления состоянием страницы в проекте используется библиотека <a href="https://github.com/vuejs/pinia">Pinia</a>.</p>
+</li>
+<li>
+<p>Для сохранения состояния в persistent-режиме используется библиотека <a href="https://github.com/prazdevs/pinia-plugin-persistedstate">Persist Pinia</a></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_получение_данных_о_пользователя">
-<a class="anchor" href="#_%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85_%D0%BE_%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F"></a>Получение данных о пользователя</h2>
+<h2 id="_подключение">
+<a class="anchor" href="#_%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5"></a>Подключение</h2>
 <div class="sectionbody">
 <div class="listingblock">
+<div class="title">package.json</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
-public UserDTO saveUserData(@RequestBody UserDTO request,
-                            @RequestHeader("Authorization") String sessionId,
-                            HttpServletResponse response) {
-    UserInfo userInfo = mellophone.user(new SystemCallContext(), sessionId);
-    return unboxOrError(userService.saveUserData(new SystemCallContext(), userInfo, null, request, response),
-            response);
-}</code></pre>
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"pinia": "^2.0.23",</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Пример функции, возвращающей данные о пользователе в случае использование Mellophone</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">UserInfo userInfo = this.restTemplate.getForObject(url, UserInfo.class);
-String userInfoSid = userInfo.getSid();
-
-if (onBehalfUser != null) {
-    userInfo.setSid(onBehalfUser.getSid());
-    userInfo.setLogin(onBehalfUser.getLogin());
-    userInfo.setOriginatorSid(userInfoSid);
-    userInfo.setName(onBehalfUser.getFullName());
-    if (onBehalfUser.isAdmin()) {
-        userInfo.setAdmin(onBehalfUser.isAdmin());
-    }
-    if (onBehalfUser.isTestAdmin()) {
-        userInfo.setTestAdmin(onBehalfUser.isTestAdmin());
-    }
-    userInfo.setOnBehalf(true);
-}
-else {
-    userCursor.tryGet(userInfoSid);
-    userInfo.setOriginatorSid(userInfoSid);
-    userInfo.setName(userCursor.getFullName());
-    if (userCursor.getIsAdmin()) {
-        userInfo.setAdmin(userCursor.getIsAdmin());
-    }
-    if (userCursor.getIsTestAdmin()) {
-        userInfo.setTestAdmin(userCursor.getIsTestAdmin());
-    }
-    userInfo.setOnBehalf(false);
-}
-
-return userInfo;</code></pre>
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"@pinia/testing": "^0.0.14",</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">main.ts</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">import { createPinia } from "pinia";</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">const pinia = createPinia();</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">const app = createApp(App)
+  .use(pinia)</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_работа_с_безопасным_курсором">
-<a class="anchor" href="#_%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0_%D1%81_%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D1%8B%D0%BC_%D0%BA%D1%83%D1%80%D1%81%D0%BE%D1%80%D0%BE%D0%BC"></a>Работа с безопасным курсором</h2>
+<h2 id="_пример_использования_для_сохранеиня_выбранного_языка">
+<a class="anchor" href="#_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80_%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F_%D0%B4%D0%BB%D1%8F_%D1%81%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D0%B5%D0%B8%D0%BD%D1%8F_%D0%B2%D1%8B%D0%B1%D1%80%D0%B0%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE_%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0"></a>Пример использования для сохранеиня выбранного языка</h2>
 <div class="sectionbody">
 <div class="listingblock">
-<div class="title">Пример безопасного курсора</div>
+<div class="title">App.vue. Пример подключения хранишища (файл stores/internationalizations.ts для сохранения выбранного языка)</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Log4j2
-public class SecureUsersCursor extends UserCursor {
-    private final UserInfo userInfo;
-
-    public SecureUsersCursor(CallContext context, UserInfo userInfo) {
-        super(context);
-        this.userInfo = userInfo;
-    }
-
-    @Override
-    public boolean tryGet(String objectSid) {
-        if (isAuthorized(objectSid)) {
-            return super.tryGet(objectSid);
-        } else {
-            throw new St2ApiException("User is not authorized for making requested changes");
-        }
-    }
-
-    private boolean isAuthorized(String objectSid) {
-        return this.userInfo.getSid().equals(objectSid);
-    }
-}</code></pre>
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">import { useInternationalizationStore } from "@/stores/internationalization";</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Пример вызова безопасного курсора</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">SecureUsersCursor userCursor = new SecureUsersCursor(context, userInfo);</code></pre>
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">const internationalization = useInternationalizationStore();</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">App.vue. Сохранение</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">watch(locale, (value) =&gt; {
+  setTitle("");
+  internationalization.setLocale(value);
+});</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">main.ts. Считывание</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">import { useInternationalizationStore } from "@/stores/internationalization";
+const internationalization = useInternationalizationStore();
+i18n.global.locale.value = internationalization.locale;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_подключение_persistent_режима_сохранения_состояния">
+<a class="anchor" href="#_%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_persistent_%D1%80%D0%B5%D0%B6%D0%B8%D0%BC%D0%B0_%D1%81%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F_%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F"></a>Подключение persistent режима сохранения состояния</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">package.json</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"pinia-plugin-persistedstate": "^2.3.0",</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Включить режим persist в store</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">persist: true,</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Подключение сохранения в main.ts</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">import piniaPluginPersistedstate from "pinia-plugin-persistedstate";</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">pinia.use(piniaPluginPersistedstate);</code></pre>
 </div>
 </div>
 </div>
