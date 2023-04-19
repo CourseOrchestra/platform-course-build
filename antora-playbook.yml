@@ -1,0 +1,29 @@
+site:
+  title: Платформа КУРС
+  # the 404 page and sitemap files only get generated when the url property is set
+  start_page: doc::general.adoc
+content:
+  sources:
+  - url: .
+    branches: HEAD
+#    edit_url: true
+    start_path: target/platform-course-build
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    # url: target/ui-bundle.zip
+    snapshot: true
+  supplemental_files: ./supplemental_ui
+antora:
+  extensions:
+    - require: '@antora/lunr-extension'
+      languages: [en, ru]
+asciidoc:
+  attributes:
+    kroki-fetch-diagram: true
+  extensions:
+    - asciidoctor-kroki
+output:
+  dir: target/output
+runtime:
+  cache_dir: target/.cache/antora

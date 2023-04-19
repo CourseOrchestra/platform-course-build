@@ -1,0 +1,3 @@
+= Актуальные примеры использования
+
+include::{partialsdir}/nav-copy.adoc[tag=examples]

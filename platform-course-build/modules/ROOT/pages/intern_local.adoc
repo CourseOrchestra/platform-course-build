@@ -1,0 +1,1 @@
+include::{partialsdir}/showcase3-demo/doc/pages/intern_local.adoc[]

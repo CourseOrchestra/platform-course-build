@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Сохранение состояние окна в URL :: Платформа КУРС</title>
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">Платформа КУРС</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Поиск">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="../../index.html"><img src="../../_/img/course-orchestra-logo.svg" width="60rem"></a>
+        <!--div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div-->
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="doc" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="st2-ui-state-in-url.html">Платформа КУРС</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="general.html">Общие сведения</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="update-rules.html">Порядок внесения изменений в состав платформы</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="stack.html">Стек технологий по умолчанию</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="components.html">Программные компоненты</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="commits.html">Соглашение о коммитах</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="examples.html">Актуальные примеры использования</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="st2-ui-state-in-url.html">Сохранение состояние окна в URL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="st2-ui-menu.html">Меню приложения</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="FileStorage.html">Файловое хранилище</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="SetOnBehalf.html">Механизм логина от имени пользователя</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="intern_local.html">Интернационализация и локализация</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="save_statement.html">Сохраниение состояния</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="st2-logging.html">Журналирование (логирование) результатов операций в СУБД</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="st2-secure-cursor.html">Безопасность доступа к объектам БД</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="glasscase-back-is.html">Разграничение доступа к данным через сертифицированные СЗИ</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Платформа КУРС</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../mellophone/2/general.html">Мелофон</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../mellophone/2/general.html">2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="st2-ui-state-in-url.html">Платформа КУРС</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="st2-ui-state-in-url.html">1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../celesta/7/1010_what_is_celesta.html">Челеста</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../celesta/7/1010_what_is_celesta.html">7</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="general.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="st2-ui-state-in-url.html">Платформа КУРС</a></li>
+    <li><a href="examples.html">Актуальные примеры использования</a></li>
+    <li><a href="st2-ui-state-in-url.html">Сохранение состояние окна в URL</a></li>
+  </ul>
+</nav>
+<!--  -->
+<!--  -->
+<!--  <div class="edit-this-page"><a href="file:///usr/src/app/target/platform/modules/ROOT/pages/st2-ui-state-in-url.adoc">Редактировать страницу</a></div>-->
+<!--  -->
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Содержание" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Сохранение состояние окна в URL</h1>
+<div class="sect1">
+<h2 id="_общие_принципы">
+<a class="anchor" href="#_%D0%BE%D0%B1%D1%89%D0%B8%D0%B5_%D0%BF%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF%D1%8B"></a>Общие принципы</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Форма не должна содержать возможность прямого редактирования</p>
+</li>
+<li>
+<p>Редактирование данных должно осуществляться только через диалоговое (модальное) окно</p>
+</li>
+<li>
+<p>Изменения в форме (содержание полей ввода, кнопки и т.п.) могут только менять параметры отображения формы (фильтрация данных, отображение диалогов, скрытие/раскрытие кусков формы). Применение любых параметров возможно только через посредничество строки URL: пользователь меняет параметр → изменение отражается в URL → изменение применяется посредством считывания URL</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_типовые_исключения">
+<a class="anchor" href="#_%D1%82%D0%B8%D0%BF%D0%BE%D0%B2%D1%8B%D0%B5_%D0%B8%D1%81%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F"></a>Типовые исключения</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Объем сохраняемых параметров потенциально очень большой. Например, перечень строк выделенных чек-боксами в табличном гриде.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_общие_функции_обеспечивающие_сохранение_состояния_в_url">
+<a class="anchor" href="#_%D0%BE%D0%B1%D1%89%D0%B8%D0%B5_%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8_%D0%BE%D0%B1%D0%B5%D1%81%D0%BF%D0%B5%D1%87%D0%B8%D0%B2%D0%B0%D1%8E%D1%89%D0%B8%D0%B5_%D1%81%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5_%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F_%D0%B2_url"></a>Общие функции, обеспечивающие сохранение состояния в URL</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">mapParamFromUrl(context: { [k: string]: any }, route: { [k: string]: any }, variableName: any, alias: string) {
+    let paramName = variableName.name.split(/\W+|(?=[A-Z])|_/g).join("-").toLowerCase();
+    if (alias) {
+        paramName = alias + '-' + paramName;
+    }
+    switch (variableName.type) {
+        case 's':
+            context[variableName.name] = route[paramName];
+            break;
+        case 'n':
+            context[variableName.name] = Number(route[paramName]);
+            break;
+        case 'b':
+            context[variableName.name] = String(route[paramName]) === 'true';
+            break;
+        case 'a':
+            context[variableName.name] = route[paramName];
+            break;
+        default:
+            break;
+    }
+}
+
+mapParamsFromUrl(context: { [k: string]: any }, route: { [k: string]: any }, variableNames: any, alias: string) {
+    for (let variableName of variableNames) {
+        this.mapParamFromUrl(context, route, variableName, alias);
+    }
+}
+
+trySetTimeout(f: any) {
+    let last_timeout
+    clearTimeout(last_timeout);
+    last_timeout = setTimeout(() =&gt; {
+        f()
+    }, TIMER_INTERVAL);
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_основной_переиспользуемый_код_для_табличной_формы">
+<a class="anchor" href="#_%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%BE%D0%B9_%D0%BF%D0%B5%D1%80%D0%B5%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D0%B5%D0%BC%D1%8B%D0%B9_%D0%BA%D0%BE%D0%B4_%D0%B4%D0%BB%D1%8F_%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%87%D0%BD%D0%BE%D0%B9_%D1%84%D0%BE%D1%80%D0%BC%D1%8B"></a>Основной переиспользуемый код для табличной формы</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">Отслеживание изменений различных параметров</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">watch: {
+  // Параметры пагинации и сортировки
+  options: {
+    handler() {
+      this.setUrlByModelFilter();
+      this.getDataFromApi(this.mapModelToUrl());
+    },
+    deep: true,
+  },
+  // Параметры фильтрации
+  dates: {
+    handler() {
+      this.setUrlByModelFilter();
+    },
+    deep: true,
+  },
+  // Изменение маршрутизации страницы
+  '$route': function (route) {
+    this.onRouter(route);
+  }
+},</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Изменение URL</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">setUrlByModelFilter() {
+  this.$router.push({
+    path: this.$route.path,
+    query: {
+      ...this.mapModelToUrl()
+    },
+  }, () =&gt; {
+  });
+},
+
+setUrlByModelFilterWithTimeout() {
+  this.$utils.trySetTimeout(this.setUrlByModelFilter);
+},</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Формирование параметров URL</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">mapModelToUrl() {
+  let parameters: { [k: string]: any } = {};
+
+  parameters['items-per-page'] = this.options.itemsPerPage ? this.options.itemsPerPage : 50;
+  parameters['page'] = this.options.page ? this.options.page : 1;
+  parameters['sort-by'] = this.options.sortBy[0] ? this.options.sortBy[0] : 'date_start';
+  parameters['sort-desc'] = this.options.sortDesc[0] ? this.options.sortDesc[0] : false;
+
+  if (this.dateFormatted &amp;&amp; this.dateFormatted2 &amp;&amp; this.dates.length === 2) {
+    if ((this.dates[0] &amp;&amp; this.dates[1]) &amp;&amp; this.dates[0] &lt;= this.dates[1]) {
+      parameters['multicase_date_start'] = this.parseDate(this.dateFormatted);
+      parameters['multicase_date_end'] = this.parseDate(this.dateFormatted2);
+    } else {
+      parameters['multicase_date_start'] = this.parseDate(this.dateFormatted2);
+      parameters['multicase_date_end'] = this.parseDate(this.dateFormatted);
+    }
+  }
+
+  return parameters;
+},
+
+mapUrlToModel(parameters: { [x: string]: any; }) {
+  // todo: Функции установки сортировки о постраничного просмотра должны быть общими
+  if (parameters['items-per-page'] &amp;&amp; parameters['page']) {
+    this.options.itemsPerPage = Number(parameters['items-per-page']);
+    this.options.page = Number(parameters['page']);
+  } else {
+    this.options.itemsPerPage = 50;
+    this.options.page = 1;
+  }
+
+  if (parameters['sort-by']) {
+    this.options.sortBy = [parameters['sort-by']];
+    this.options.sortDesc = [String((parameters['sort-desc'])) === 'true'];
+  } else {
+    this.options.sortBy = ['date_start'];
+    this.options.sortDesc = [false];
+  }
+
+  // todo: Добавить значения по умолчанию в функцию мэппинга
+  if (parameters['multicase_date_start'] &amp;&amp; parameters['multicase_date_end']) {
+    this.$utils.mapParamsFromUrl(this, parameters,
+        [
+          {name: 'multicase_date_start', type: 'd'},
+          {name: 'multicase_date_end', type: 'd'},
+        ], '');
+    this.dates = [parameters['multicase_date_start'], parameters['multicase_date_end']];
+    this.onDatePickerValueChanged();
+  }
+},</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Вызов обработки изменения URL при первоначальном создании страницы</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">created() {
+  this.onRouter(this.$route);
+},</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Обработка изменения URL</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">onRouter(route: { query: any; }) {
+  this.mapSession();
+  this.mapUrlToModel(route.query);
+  this.getDataFromApi(this.mapModelToUrl());
+  this.mapSession();
+},</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/vendor/lunr-languages.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>
