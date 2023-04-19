@@ -1,0 +1,6 @@
+name: doc
+title: Платформа КУРС
+version: 1
+start_page: "st2-ui-state-in-url.adoc"
+nav:
+- modules/ROOT/nav.adoc

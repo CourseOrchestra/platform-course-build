@@ -1,0 +1,54 @@
+= Стек технологий по умолчанию
+
+:openapi: https://swagger.io/[OpenAPI]
+:graphql: https://graphql.org/[GraphQL]
+:asciidoctor-od: https://docs.asciidoctor.org/[Asciidoctor]
+
+NOTE: В каждом проекте уникальная ситуация и выбор технологий должен определяться целесообразностью.
+
+== Back
+
+=== Java
+
+. https://spring.io/projects/spring-boot[Spring Boot]
+. Спецификация серверного API -- https://swagger.io/[OpenAPI], https://github.com/CourseOrchestra/hurdy-gurdy[Hurdy-Gurdy]
+. ORM, миграция -- https://courseorchestra.github.io/celesta/en/index.html[Celesta]
+. Тестирование -- https://junit.org/junit5/docs/current/user-guide/[Junit5], https://courseorchestra.github.io/celesta/en/index.html[Celesta]-link:https://www.h2database.com[H2]
+
+=== Python
+
+. https://flask.palletsprojects.com[Flask]
+. Спецификация серверного API -- https://graphql.org/[GraphQL],  https://docs.graphene-python.org/[Graphene]
+. ORM, миграция -- https://www.sqlalchemy.org/[SQLAlchemy], https://flask-migrate.readthedocs.io/[Flask-Migrate]
+. Тестирование бизнес-логики -- link:https://docs.pytest.org/[pytest], link:https://www.sqlalchemy.org/[SQLAlchemy]-link:https://www.sqlite.org[SQLite]
+
+=== СУБД
+
+* https://www.postgrespro.ru/[PostgreSQL]
+
+=== Безопасность в части разграничения доступа к данным
+
+. Создание отдельного Security DAO-слоя с безопасными курсорами
+. Для целей аттестации -- использование для доступа представлений вида субъект-объект. Допускается использовать только сертифицированные СУБД
+. Поддержка сессии либо через https://jwt.io/[JWT], либо через https://github.com/CourseOrchestra/mellophone2[Mellophone], либо через любой сервер, обеспечивающий единую аутентификацию
+
+
+== Front
+
+1. https://www.typescriptlang.org/[Typescript]
+2. Автогенерирование кода:
+* {openapi} -- https://openapi-generator.tech/[OpenAPI Generator]
+* {graphql} -- https://www.graphql-code-generator.com/[GraphQL Code Generator]
+3. Интерфейс -- https://vuejs.org/[Vue], https://vuetifyjs.com/[Vuetify]
+4. Для больших гридов (миллионы записей) с плавной прокруткой -- https://github.com/CourseOrchestra/lyra[Lyra]
+
+== Документация
+
+. https://docs.asciidoctor.org/[Asciidoctor]
+. https://docs.antora.org/[Antora]
+. https://courseorchestra.github.io/asciidoctor-open-document/[Asciidoctor Open Document]
+
+== DevOps
+
+. Данные для тестирования создаются в виде идемпотентных запросов Ansi SQL, которые работают идентично на in-memory СУБД, используемых для теситрвоания бизнес-логики, и продуктивных СУБД
+. CI/CD -- https://github.com/features/actions[GitHub Actions]

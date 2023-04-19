@@ -1,0 +1,1 @@
+include::{partialsdir}/st2-ui/doc/pages/st2-ui-state-in-url.adoc[]

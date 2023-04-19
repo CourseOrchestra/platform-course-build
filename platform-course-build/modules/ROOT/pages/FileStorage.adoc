@@ -1,0 +1,1 @@
+include::{partialsdir}/qt2-api/doc/FileStorage.adoc[]
