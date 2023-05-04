@@ -18,7 +18,7 @@ NOTE: В каждом проекте уникальная ситуация и в
 === Python
 
 . https://flask.palletsprojects.com[Flask]
-. Спецификация серверного API -- https://graphql.org/[GraphQL],  https://docs.graphene-python.org/[Graphene]
+. Спецификация серверного API -- https://graphql.org/[GraphQL] footnote:[Используется только при сложной информационной модели и большом количестве клиентов],  https://docs.graphene-python.org/[Graphene]
 . ORM, миграция -- https://www.sqlalchemy.org/[SQLAlchemy], https://flask-migrate.readthedocs.io/[Flask-Migrate]
 . Тестирование бизнес-логики -- link:https://docs.pytest.org/[pytest], link:https://www.sqlalchemy.org/[SQLAlchemy]-link:https://www.sqlite.org[SQLite]
 

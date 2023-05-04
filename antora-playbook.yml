@@ -4,10 +4,10 @@ site:
   start_page: doc::general.adoc
 content:
   sources:
-  - url: .
-    branches: HEAD
-#    edit_url: true
-    start_path: target/platform-course-build
+    - url: .
+      branches: HEAD
+      #    edit_url: true
+      start_path: platform-course-build
 ui:
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
