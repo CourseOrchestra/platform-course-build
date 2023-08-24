@@ -1,1 +1,1 @@
-include::{partialsdir}/st2-ui/doc/pages/st2-ui-menu.adoc[]
+include::{partialsdir}/st2-ui/doc/pages/st2-ui-menu.adoc

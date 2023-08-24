@@ -1,4 +1,5 @@
 = Программные компоненты
+:showcase3: https://github.com/CourseOrchestra/showcase3-demo[Showcase 3]
 :celesta: https://courseorchestra.github.io/celesta/en/index.html[Celesta]
 :mellophone: https://github.com/CourseOrchestra/mellophone2[Mellophone]
 :asciidoctor-od: https://courseorchestra.github.io/asciidoctor-open-document/[Asciidoctor Open Document]
@@ -7,6 +8,7 @@
 :hurdy-gurdy: https://github.com/CourseOrchestra/hurdy-gurdy[Hurdy-Gurdy]
 
 .В платформу КУРС входят следующие компоненты:
+* {showcase3};
 * {asciidoctor-od};
 * {celesta};
 * {hurdy-gurdy};
